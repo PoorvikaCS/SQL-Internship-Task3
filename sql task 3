@@ -1,0 +1,30 @@
+CREATE TABLE Employees (
+    emp_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    age INTEGER,
+    department TEXT DEFAULT 'General',
+    salary REAL,
+    bonus REAL
+);
+
+INSERT INTO Employees (emp_id, name, age, department, salary, bonus)
+VALUES (1, 'Anu', 30, 'HR', 50000, NULL);
+INSERT INTO Employees (emp_id, name, age, salary)
+VALUES (2, 'Praju', 28, 45000);
+INSERT INTO Employees (emp_id, name, department, salary, bonus)
+VALUES (3, 'Poorvi', 'IT', 60000, NULL);
+UPDATE Employees SET bonus = 5000 WHERE name = 'Anu';
+UPDATE Employees SET bonus = 2000 WHERE name = 'Poorvi';
+
+SELECT * FROM Employees;
+SELECT name, age FROM Employees;
+SELECT * FROM Employees WHERE department = 'HR';
+SELECT * FROM Employees WHERE department = 'HR' AND salary > 30000;
+SELECT * FROM Employees WHERE name LIKE '%p%';
+SELECT * FROM Employees WHERE age BETWEEN 25 AND 40;
+SELECT * FROM Employees ORDER BY salary DESC;
+SELECT * FROM Employees LIMIT 5;
+SELECT name AS Employee_Name, salary AS Monthly_Salary FROM Employees;
+SELECT DISTINCT department FROM Employees;
+SELECT * FROM Employees WHERE department IN ('HR', 'Sales');
+
